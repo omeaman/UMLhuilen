@@ -7,15 +7,13 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 public class Speelveld {
-	List<Tegel> tegelList = new ArrayList<Tegel>();
+	List<? extends Tegel> tegelList;
 	public void controleerSpeelveld(int playSize)
 	{
 		try {
-			if(playSize >= 10)
+			if(playSize >= 12)
 			{
-				
-				playSize = playSize - 8;
-				
+				tekenMuur(playSize);
 			}else
 			{
 				throw new Exception("Te klein");
@@ -31,7 +29,8 @@ public class Speelveld {
 	}
 	public void tekenMuur(int playSize)
 	{
-		int muur;
+		int muurSize = playSize;
+		tegelList.add(Muur);
 	}
 	private void createWalls()
 	{

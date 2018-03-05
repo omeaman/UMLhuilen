@@ -1,11 +1,16 @@
 package MainPackage;
 
 public class Coordinaat {
-	public short rij, kolom;
+	private short rij, column;
 	public void getTopLeft()
 	{
-		//ongemakkelijk
-		////mhuhuhuhuh
-		//hoerekutjes
+	}
+	public void setRij(int rij)
+	{
+		
+	}
+	public void setColumn(int column)
+	{
+		
 	}
 }
