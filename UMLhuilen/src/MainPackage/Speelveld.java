@@ -7,50 +7,35 @@ import javax.swing.*;
 public class Speelveld{
 private static int rows;
 private static int columns;
-static JFrame f;  
-Speelveld(){  
-f=new JFrame();
-f.setSize(300, 400);
-f.setVisible(true);
-f.repaint();    
-}
+static JFrame f = new JFrame();  
 public static void main(String[] args) {  
     new Speelveld();
     rows = 6;
     columns = 6;
+    
     drawGrid(f);
-    f.setLayout(new GridLayout(rows,columns));  
-    //setting grid layout of 3 rows and 3 columns  
-  
-    f.setSize(300,300);  
-    f.setVisible(true);  
+    f.setSize((columns*52), (rows*52));
+    f.setVisible(true);
 }
 public static void drawGrid(JFrame f)
 {
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
-	    muurtje.Teken(f);
+	    muurtje.Teken(f,i,0);
 	}
-	for(int i = 0 ; i < (rows-2);i++)
+	
+	for(int i = 1 ; i <= (rows-2);i++)
 	{
 	    Muur muurtje = new Muur();
-	    muurtje.Teken(f);
-	    for(int k = 0; k < (columns-2);k++)
+	    muurtje.Teken(f,0,i);
+	    for(int k = 1; k <= (columns-2);k++)
 	    {
 	    	Leeg leegtje = new Leeg();
-	    	leegtje.Teken(f);
+	    	leegtje.Teken(f,i,k);
 	    }
-	    muurtje.Teken(f);
+	    muurtje.Teken(f,(columns-1),i);
 	}
-	for(int i = 0;i < columns;i++){
-	    Muur muurtje = new Muur();
-	    muurtje.Teken(f);
-	}
-    f.setLayout(new GridLayout(3,3));  
-    //setting grid layout of 3 rows and 3 columns  
-  
-    f.setSize(300,300);  
-    f.setVisible(true);  
+	
 
 }
 }  

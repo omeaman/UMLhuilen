@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Leeg extends Tegel{
 	public Leeg(){
-		kleurtje = Color.RED;
+		kleurtje = Color.WHITE;
 	}
 
 }

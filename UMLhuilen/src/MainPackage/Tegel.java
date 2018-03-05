@@ -5,13 +5,14 @@ import javax.swing.*;
 
 public class Tegel{
 	public Color kleurtje;
-	public void Teken(JFrame f)
+	
+	public void Teken(JFrame f,int x, int y)
 	{
-
-        JButton Tegel = new JButton();
-        Tegel.setBackground(kleurtje);
-        
-		f.add(Tegel);
-		f.repaint();
+        JButton Tegels = new JButton();
+        Tegels.setSize(50, 50);
+        Tegels.setBackground(kleurtje);
+        Tegels.setLocation((x*50), (y*50));
+        System.out.println(x +" "+  y);
+		f.add(Tegels);
 	}
 }

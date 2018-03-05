@@ -1,16 +1,24 @@
 package MainPackage;
 
 public class Coordinaat {
-	private short rij, column;
+	private double rij, column;
 	public void getTopLeft()
 	{
 	}
-	public void setRij(short setRij)
+	public void setRij(double setRij)
 	{
 		rij = setRij;
 	}
-	public void setColumn(short setColumn)
+	public void setColumn(double setColumn)
 	{
 		column = setColumn;
+	}
+	public double getRij()
+	{
+		return rij;
+	}
+	public double getColumn()
+	{
+		return column;
 	}
 }
