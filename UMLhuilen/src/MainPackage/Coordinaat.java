@@ -5,12 +5,12 @@ public class Coordinaat {
 	public void getTopLeft()
 	{
 	}
-	public void setRij(int rij)
+	public void setRij(short setRij)
 	{
-		
+		rij = setRij;
 	}
-	public void setColumn(int column)
+	public void setColumn(short setColumn)
 	{
-		
+		column = setColumn;
 	}
 }
