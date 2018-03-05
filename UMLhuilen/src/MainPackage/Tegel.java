@@ -8,7 +8,7 @@ public class Tegel{
 	
 	public void Teken(JFrame f,int x, int y)
 	{
-        JButton Tegels = new JButton();
+        Canvas Tegels = new Canvas();
         Tegels.setSize(50, 50);
         Tegels.setBackground(kleurtje);
         Tegels.setLocation((x*50), (y*50));

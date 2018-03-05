@@ -36,6 +36,9 @@ public static void drawGrid(JFrame f)
 	    muurtje.Teken(f,(columns-1),i);
 	}
 	
-
+	for(int i = 0;i < columns;i++){
+	    Muur muurtje = new Muur();
+	    muurtje.Teken(f,i,0);
+	}
 }
 }  
