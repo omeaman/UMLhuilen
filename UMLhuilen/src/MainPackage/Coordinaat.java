@@ -1,23 +1,23 @@
 package MainPackage;
 
 public class Coordinaat {
-	private double rij, column;
+	private Integer rij, column;
 	public void getTopLeft()
 	{
 	}
-	public void setRij(double setRij)
+	public void setRij(Integer setRij)
 	{
 		rij = setRij;
 	}
-	public void setColumn(double setColumn)
+	public void setColumn(Integer setColumn)
 	{
 		column = setColumn;
 	}
-	public double getRij()
+	public Integer getRij()
 	{
 		return rij;
 	}
-	public double getColumn()
+	public Integer getColumn()
 	{
 		return column;
 	}

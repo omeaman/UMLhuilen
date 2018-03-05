@@ -1,22 +1,21 @@
 package MainPackage;
 
-
-import java.awt.*;  
+import java.awt.*;
 import javax.swing.*;  
+import java.util.*;
 
 public class Speelveld{
-private static int rows;
-private static int columns;
+static int rows = 6;
+static int columns = 7;
 static JFrame f = new JFrame();
 static Doel doeltje = new Doel();
+static Tegel[][] tegelSave = new Tegel[columns][rows];
 public static void main(String[] args) {  
-    new Speelveld();
-    rows = 6;
-    columns = 6;
-    
     drawGrid(f);
-    f.setSize((columns*55), (rows*55));
+
     f.setVisible(true);
+    f.setSize((columns*55), (rows*55));
+    
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
 
@@ -32,6 +31,7 @@ public static void drawGrid(JFrame f)
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
 	    muurtje.Teken(f,i,0);
+	    tegelSave[i][0] = muurtje;
 	}
 	
 	for(int i = 0 ; i < (rows-2);i++)
@@ -42,10 +42,12 @@ public static void drawGrid(JFrame f)
 	    {
 	    	if(i == rdmrow-1 && k == rdmcolumn-1) {
 		    	
-		    	doeltje.Teken(f,(i+1),(k+1));
+		    	doeltje.Teken(f,(k+1),(i+1));
+		    	tegelSave[i][k] = doeltje;
 	    	}else {
 		    	Leeg leegtje = new Leeg();
-		    	leegtje.Teken(f,(i+1),(k+1));
+		    	leegtje.Teken(f,(k+1),(i+1));
+		    	tegelSave[i][k] = leegtje;
 	    	}
 	    }
 	    muurtje.Teken(f,(columns-1),(i+1));
@@ -53,7 +55,26 @@ public static void drawGrid(JFrame f)
 	
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
-	    muurtje.Teken(f,i,0);
+	    muurtje.Teken(f,i,(rows-1));
+	    tegelSave[i][0] = doeltje;
+
 	}
+
+    Canvas Tegels = new Canvas();							//Beunhaas oplossing voor het grote button probleem.
+    Tegels.setSize(0, 0);
+	f.add(Tegels);
+}
+public void searchTileTypeByLocation(int row, int column)
+{
+	for(int i = 0; i< columns;i++){
+		for(int k = 0; k < row;k++)
+		{
+			if(tegelSave[i][k].getType)						//TODO Hier ken je tegel type vinden
+			{
+				
+			}
+		}
+	}
+
 }
 }

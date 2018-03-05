@@ -5,16 +5,27 @@ import javax.swing.*;
 
 public class Tegel{
 	public Color kleurtje;
-	
+    Coordinaat coor = new Coordinaat();
 	public void Teken(JFrame f,int x, int y)
 	{
-        Canvas Tegels = new Canvas();
+	    System.out.println("x" + x + "y" + y);
+        JButton Tegels = new JButton();
         Tegels.setSize(50, 50);
+
         Tegels.setBackground(kleurtje);
         Tegels.setLocation((x*50), (y*50));
-        Coordinaat coor = new Coordinaat();
-        coor.setColumn(y);
-        coor.setRij(x);
+
+        coor.setRij(y);
+        coor.setColumn(x);
+
 		f.add(Tegels);
+	}
+	public Integer getRow()
+	{
+		return this.coor.getRij();
+	}
+	public Integer getColumn()
+	{
+		return this.coor.getColumn();
 	}
 }
