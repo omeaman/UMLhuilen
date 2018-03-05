@@ -7,7 +7,8 @@ import javax.swing.*;
 public class Speelveld{
 private static int rows;
 private static int columns;
-static JFrame f = new JFrame();  
+static JFrame f = new JFrame();
+static Doel doeltje = new Doel();
 public static void main(String[] args) {  
     new Speelveld();
     rows = 6;
@@ -16,7 +17,9 @@ public static void main(String[] args) {
     drawGrid(f);
     f.setSize((columns*55), (rows*55));
     f.setVisible(true);
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
+
 public static void drawGrid(JFrame f)
 {
 	double rdmrow = Math.random();
@@ -38,7 +41,7 @@ public static void drawGrid(JFrame f)
 	    for(int k = 0; k < (columns-2);k++)
 	    {
 	    	if(i == rdmrow-1 && k == rdmcolumn-1) {
-		    	Doel doeltje = new Doel();
+		    	
 		    	doeltje.Teken(f,(i+1),(k+1));
 	    	}else {
 		    	Leeg leegtje = new Leeg();
