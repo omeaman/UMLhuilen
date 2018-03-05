@@ -1,22 +1,23 @@
 package MainPackage;
+
 import java.awt.*;
 import javax.swing.*;
 
-public class Tegel extends JPanel{
-	private int squareX = 50;
-	private int squareY = 50;
-	private int squareW = 20;
-	private int squareH = 20;
-	Coordinaat coor = new Coordinaat();
-	public void Teken(short rij, short column)
+public class Tegel{
+	Color kleurtje;
+	public void Teken(JFrame f)
 	{
-		coor.setColumn(column);
-		coor.setRij(rij);
+        Canvas Tegel = new Canvas();
+        Tegel.setBackground(Color.BLUE);
+        
+		f.add(Tegel);
+		f.repaint();
 		
+		  
+	    f.setLayout(new GridLayout(3,3));  
+	    //setting grid layout of 3 rows and 3 columns  
+	  
+	    f.setSize(300,300);  
+	    f.setVisible(true);  
 	}
-    protected void Teken(Graphics g) {
-        super.paintComponent(g); // do your superclass's painting routine first, and then paint on top of it.
-        g.setColor(Color.RED);
-        g.fillRect(squareX,squareY,squareW,squareH);
-    }
 }
