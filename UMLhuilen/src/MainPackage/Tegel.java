@@ -12,7 +12,9 @@ public class Tegel{
         Tegels.setSize(50, 50);
         Tegels.setBackground(kleurtje);
         Tegels.setLocation((x*50), (y*50));
-        System.out.println(x +" "+  y);
+        Coordinaat coor = new Coordinaat();
+        coor.setColumn(y);
+        coor.setRij(x);
 		f.add(Tegels);
 	}
 }

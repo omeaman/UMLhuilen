@@ -1,5 +1,9 @@
 package MainPackage;
 
-public class Doel extends Tegel{
+import java.awt.Color;
 
+public class Doel extends Tegel{
+	public Doel(){
+		kleurtje = Color.GREEN;
+	}
 }
