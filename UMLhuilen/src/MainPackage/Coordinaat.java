@@ -6,5 +6,6 @@ public class Coordinaat {
 	{
 		//ongemakkelijk
 		////mhuhuhuhuh
+		//hoerekutjes
 	}
 }
