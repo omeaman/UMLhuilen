@@ -5,5 +5,6 @@ public class Coordinaat {
 	public void getTopLeft()
 	{
 		//ongemakkelijk
+		////mhuhuhuhuh
 	}
 }
