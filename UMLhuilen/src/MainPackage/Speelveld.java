@@ -8,8 +8,8 @@ import java.awt.event.*;
 public class Speelveld{
 static int rows = 10;
 static int columns = 10;
-private static double rdmrow = Math.random();
-private static double rdmcolumn = Math.random();
+private static int rdmrow = 0;
+private static int rdmcolumn = 0;
 static int playerrow;
 static int playercolumn;
 private static int moveVertical;
@@ -76,12 +76,15 @@ public static void checkKey(KeyEvent e) {
 }
 
 public static void updateSpeler() {
+	
 	spelertje.Teken(f,(playerrow),(playercolumn));
+	f.repaint();
 }
 
 public static void drawGrid(JFrame f)
 {
-	
+	spelertje.Teken(f,playercolumn-1,playerrow-1);
+	doeltje.Teken(f, (rdmcolumn-1), (rdmrow-1));
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
 	    muurtje.Teken(f,i,0);
@@ -98,8 +101,11 @@ public static void drawGrid(JFrame f)
 	    		doeltje.Teken(f,(k+1),(i+1));
 		    	tegelSave[i][k] = doeltje;
 	    	}else if(i == playerrow-1 && k == playercolumn-1){
-	    		spelertje.Teken(f,(k+1),(i+1));
-		    	tegelSave[i][k] = spelertje;
+
+	    		
+	    		Leeg leegtje = new Leeg();
+		    	leegtje.Teken(f,(k+1),(i+1));
+		    	tegelSave[i][k] = leegtje;
 	    	}else{
 	    		Leeg leegtje = new Leeg();
 		    	leegtje.Teken(f,(k+1),(i+1));
@@ -118,7 +124,9 @@ public static void drawGrid(JFrame f)
 
     Canvas Tegels = new Canvas();							//Beunhaas oplossing voor het grote button probleem.
     Tegels.setSize(0, 0);
+
 	f.add(Tegels);
+
 }
 public static void genereerDoelLocatie() {
 	rdmrow = (rdmrow*(rows-3))+1;
