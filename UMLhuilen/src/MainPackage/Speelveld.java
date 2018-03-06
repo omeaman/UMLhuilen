@@ -10,8 +10,6 @@ static int rows = 10;
 static int columns = 10;
 private static double rdmrow = Math.random();
 private static double rdmcolumn = Math.random();
-static int playerrow;
-static int playercolumn;
 private static int moveVertical;
 private static int moveHorizontal;
 static JFrame f = new JFrame();
@@ -56,34 +54,28 @@ public static void checkKey(KeyEvent e) {
 	if(code == 38) {
 		moveHorizontal = 0;
 		moveVertical = -1;
-		spelertje.beweeg(moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical);
 	}
 	if(code == 40) {
 		moveHorizontal = 0;
 		moveVertical = 1;
-		spelertje.beweeg(moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical);
 	}
 	if(code == 37) {
 		moveHorizontal = -1;
 		moveVertical = 0;
-		spelertje.beweeg(moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical);
 	}
 	if(code == 39) {
 		moveHorizontal = 1;
 		moveVertical = 0;
-		spelertje.beweeg(moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical);
 	}
-}
-
-public static void updateSpeler() {
-	
-	spelertje.Teken(f,(playerrow),(playercolumn));
-	f.repaint();
 }
 
 public static void drawGrid(JFrame f)
 {
-	spelertje.Teken(f,(playercolumn),(playerrow));
+	spelertje.Teken(f,(spelertje.playercolumn),(spelertje.playerrow));
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
 	    muurtje.Teken(f,i,0);
@@ -99,7 +91,7 @@ public static void drawGrid(JFrame f)
 	    	if(i == rdmrow-1 && k == rdmcolumn-1) {
 	    		doeltje.Teken(f,(k+1),(i+1));
 		    	tegelSave[i][k] = doeltje;
-	    	}else if(i == playerrow-1 && k == playercolumn-1){
+	    	}else if(i == spelertje.playerrow-1 && k == spelertje.playercolumn-1){
 	    		
 	    		Leeg leegtje = new Leeg();
 		    	leegtje.Teken(f,(k+1),(i+1));
@@ -132,15 +124,15 @@ public static void genereerDoelLocatie() {
 }
 private static void genereerSpelerLocatie() {
 	if(rdmrow <= (rows-2)/2) {
-		playerrow = rows-2;
+		spelertje.playerrow = rows-2;
 	}else {
-		playerrow = 1;
+		spelertje.playerrow = 1;
 	}
 	
 	if(rdmcolumn <= (rows-2)/2) {
-		playercolumn = columns-2;
+		spelertje.playercolumn = columns-2;
 	}else {
-		playercolumn = 1;
+		spelertje.playercolumn = 1;
 	}
 }
 }
