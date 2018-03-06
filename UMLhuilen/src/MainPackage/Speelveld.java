@@ -54,22 +54,22 @@ public static void checkKey(KeyEvent e) {
 	if(code == 38) {
 		moveHorizontal = 0;
 		moveVertical = -1;
-		spelertje.beweeg(f,moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical,tegelSave);
 	}
 	if(code == 40) {
 		moveHorizontal = 0;
 		moveVertical = 1;
-		spelertje.beweeg(f,moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical,tegelSave);
 	}
 	if(code == 37) {
 		moveHorizontal = -1;
 		moveVertical = 0;
-		spelertje.beweeg(f,moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical,tegelSave);
 	}
 	if(code == 39) {
 		moveHorizontal = 1;
 		moveVertical = 0;
-		spelertje.beweeg(f,moveHorizontal, moveVertical);
+		spelertje.beweeg(f,moveHorizontal, moveVertical,tegelSave);
 	}
 }
 
@@ -79,7 +79,6 @@ public static void drawGrid(JFrame f)
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
 	    muurtje.Teken(f,i,0);
-	    tegelSave[i][0] = muurtje;
 	}
 
 	for(int i = 0 ; i < (rows-2);i++)
@@ -108,7 +107,6 @@ public static void drawGrid(JFrame f)
 	for(int i = 0;i < columns;i++){
 	    Muur muurtje = new Muur();
 	    muurtje.Teken(f,i,(rows-1));
-	    tegelSave[i][0] = doeltje;
 
 	}
 

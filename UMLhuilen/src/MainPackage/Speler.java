@@ -2,6 +2,7 @@ package MainPackage;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
@@ -11,9 +12,22 @@ public class Speler extends Tegel{
 	public Speler(){
 		kleurtje = Color.RED;
 	}
-	public void beweeg(JFrame f,int x,int y)
+	public void beweeg(JFrame f,int x,int y,Tegel[][] tegelSave)
 	{
-		System.out.println(playerrow);
+		if(tegelSave[(playercolumn+y-1)][(playerrow+x-1)] != null){
+		if(tegelSave[(playercolumn+y-1)][(playerrow+x-1)].getType() == "MainPackage.Doel")
+		{
+			realyMove(f,x,y,tegelSave);
+			System.out.println("Gewonnen");
+		}else if(tegelSave[(playercolumn+y-1)][(playerrow+x-1)].getType() == "MainPackage.Leeg")
+		{
+			realyMove(f,x,y,tegelSave);
+		}
+
+		}
+	}
+	private void realyMove(JFrame f,int x,int y,Tegel[][] tegelSave)
+	{
 		playerrow += x;
 		playercolumn += y;
 		Tegels.setLocation((playerrow*50), (playercolumn*50));
@@ -34,6 +48,5 @@ public class Speler extends Tegel{
         coor.setRij(y);
         coor.setColumn(x);
     	f.add(Tegels);
-        
 	}
 }

@@ -28,4 +28,8 @@ public class Tegel{
 	{
 		return this.coor.getColumn();
 	}
+	public String getType()
+	{
+		return this.getClass().getName();
+	}
 }
